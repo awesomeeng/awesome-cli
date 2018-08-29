@@ -6,12 +6,12 @@
     "contributors": [{
         "name": "Glen R. Goodwin"
     }],
+	"main": "./src/AwesomeCLI.js",
     "engines": {
         "node": ">=10.5.0"
     },
     "dependencies": {
-        "colors": "*",
-        "lodash": "^4.17.10"
+		"@AwesomeEng/AwesomeUtils": "*"
     },
     "devDependencies": {
         "mocha": "*"
