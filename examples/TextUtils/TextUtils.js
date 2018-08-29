@@ -9,8 +9,8 @@ class CLI extends AwesomeCLI {
 	constructor() {
 		super({
 			title: "textutils",
-			usage: "textutils [options] <command> [sub-command] <text>",
-			description: "A more complex example of AwesomeCLI, this performs a number of text utility functions in one. You may either pipe content"
+			usage: "textutils [options] <command>",
+			description: "A more complex example of AwesomeCLI, this performs a number of text utility functions in one. You may either specify conftent using the --source options, or pipe it in."
 		});
 
 		this.addCommand("line","./commands/LineCommand.js");
