@@ -47,7 +47,9 @@ class CLI extends AwesomeCLI {
 		}
 
 		// Finally, we execute() to run our command.
-		cli.start();
+		await cli.start();
+
+		process.exit();
 	}
 	catch (ex) {
 		console.error(ex.message);

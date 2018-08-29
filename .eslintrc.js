@@ -28,6 +28,9 @@ module.exports = {
 		],
 		"no-constant-condition": [
 			"off"
+		],
+		"no-console": [
+			"off"
 		]
     }
 };

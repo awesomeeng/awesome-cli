@@ -152,6 +152,7 @@ class AwesomeCLI extends CLICommand {
 
 	stdinRead() {
 		if (this[$STDIN_DATA]) return Promise.resolve(this[$STDIN_DATA]);
+		if (!process || !process.stdin || process.stdin.isTTY) return Promise.resolve("");
 
 		return new Promise((resolve,reject)=>{
 			try {
@@ -243,6 +244,61 @@ class AwesomeCLI extends CLICommand {
 		if (!options) options = this.options;
 
 		return super.start(args,options);
+	}
+
+	help() {
+		super.help();
+
+		if (this.getOptions().length>0) {
+			let opts = {};
+			this.getOptions().forEach((optionName)=>{
+				let option = this.getOption(optionName);
+				opts[optionName] = {
+					optionName,
+					type: option.type,
+					description: option.description,
+					shortcuts: []
+				};
+			});
+			this.getOptionShortcuts().forEach((shortcut)=>{
+				let optionName = this.getOptionShortcut(shortcut);
+				opts[optionName].shortcuts.push(shortcut);
+			});
+
+			let order = Object.keys(opts);
+			order.sort();
+
+			let size = 0;
+			order.forEach((optionName)=>{
+				let option = opts[optionName];
+				let s = this.config.optionDelimiter+optionName;
+				if (option.shortcuts.length>0) {
+					option.shortcuts.forEach((shortcut)=>{
+						s += (s?" | ":"")+this.config.optionDelimiter+shortcut;
+					});
+				}
+				if (option.type!=="boolean" && option.type!=="bool") s+= " ["+option.type+"]";
+				size = Math.max(size,s.length);
+			});
+
+			console.log("Options:");
+			console.log();
+
+			order.forEach((optionName)=>{
+				let option = opts[optionName];
+				let s = this.config.optionDelimiter+optionName;
+				if (option.shortcuts.length>0) {
+					option.shortcuts.forEach((shortcut)=>{
+						s += (s?" | ":"")+this.config.optionDelimiter+shortcut;
+					});
+				}
+				if (option.type!=="boolean" && option.type!=="bool") s+= " ["+option.type+"]";
+				console.log("  ",s.padEnd(size),":",option.description);
+			});
+
+			console.log();
+		}
+
 	}
 }
 

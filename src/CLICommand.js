@@ -15,14 +15,17 @@ class CLICommand {
 	}
 
 	get title() {
+		// to be implemented as needed.
 		return null;
 	}
 
 	get usage() {
+		// to be implemented as needed.
 		return null;
 	}
 
 	get description() {
+		// to be implemented as needed.
 		return null;
 	}
 
@@ -35,7 +38,57 @@ class CLICommand {
 	}
 
 	execute(/*args,options*/) {
-		// to be implemented as needed.
+		this.help();
+	}
+
+	help() {
+		console.log();
+
+		let title = this.parent && this.parent.config && this.parent.config.title || this.config && this.config.title || this.title;
+		if (title) {
+			console.log(title);
+			console.log();
+
+		}
+
+		let description = this.parent && this.parent.config && this.parent.config.description || this.config && this.config.description || this.description;
+		if (description) {
+			console.log(description);
+			console.log();
+		}
+
+		let usage = this.parent && this.parent.config && this.parent.config.usage || this.config && this.config.usage || this.usage;
+		if (usage) {
+			console.log("Usage:");
+			console.log();
+			console.log("  "+usage);
+			console.log();
+		}
+
+		if (this.getCommands()) {
+			console.log("Commands: ");
+			console.log();
+
+			let cmds = Object.values(this[$COMMANDS]);
+			cmds = cmds.map((command)=>{
+				return {
+					name: command.name,
+					instance: getCommandInstance(command)
+				};
+			});
+
+			let size = 0;
+			cmds.forEach((command)=>{
+				size = Math.max(size,command.name.length+2);
+			});
+
+			cmds.forEach((command)=>{
+				let initial = "  "+command.name;
+				console.log(initial.padEnd(size)+(command && command.instance && command.instance.description && " : "+command.instance.description|| ""));
+			});
+
+			console.log();
+		}
 	}
 
 	static get InvalidCommand() {
@@ -181,23 +234,36 @@ const _commander = function _commander(args,options) {
 	let name = args[0];
 	let remainder = args.slice(1);
 
+	if (name.toLowerCase()==="help") {
+		this.help();
+		return;
+	}
+
 	let command = this.getCommand(name);
 	if (!command) return _start.call(this,args,options);
 
 	if (!command.command) throw new InvalidCommand(name);
 
-	let exported = null;
-	if (command instanceof Function) exported = command.command;
-	else exported = require(command.command);
-	if (!exported) throw new BadCommand(name);
-
-	let instance = null;
-	if (!AwesomeUtils.Class.isClass(exported) && (exported instanceof CLICommand || exported instanceof Function)) instance = exported;
-	else if (AwesomeUtils.Class.isClass(exported) && CLICommand.isPrototypeOf(exported)) instance = new exported();
+	let instance = getCommandInstance.call(this,command);
+	if (!instance && command instanceof Function) instance = command;
+	if (!instance) throw new BadCommand(name);
 
 	if (instance instanceof CLICommand) return instance.start(remainder,options);
 	else if (instance instanceof Function) return instance(remainder,options);
 	else throw new InvalidCommand(name);
+};
+
+const getCommandInstance = function getCommandInstance(command) {
+	let exported = null;
+	if (command instanceof Function) return null;
+	else exported = require(command.command);
+	if (!exported) throw new BadCommand(command.name);
+
+	let instance = null;
+	if (!AwesomeUtils.Class.isClass(exported) && exported instanceof CLICommand) instance = exported;
+	else if (AwesomeUtils.Class.isClass(exported) && CLICommand.isPrototypeOf(exported)) instance = new exported();
+
+	return instance;
 };
 
 class InvalidCommand extends Error {
