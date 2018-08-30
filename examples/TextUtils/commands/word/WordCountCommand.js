@@ -2,11 +2,20 @@
 
 "use strict";
 
-const CLICommand = require("AwesomeCLI").CLICommand;
+const AbstractCommand = require("AwesomeCLI").AbstractCommand;
 
-class WordCountCommand extends CLICommand {
+
+class WordCountCommand extends AbstractCommand {
 	constructor() {
 		super();
+	}
+
+	get title() {
+		return "textutils > word > count";
+	}
+
+	get usage() {
+		return "textutils [global options] word count";
 	}
 
 	get description() {

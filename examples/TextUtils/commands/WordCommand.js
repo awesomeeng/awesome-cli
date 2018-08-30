@@ -2,9 +2,10 @@
 
 "use strict";
 
-const CLICommand = require("AwesomeCLI").CLICommand;
+const AbstractCommand = require("AwesomeCLI").AbstractCommand;
 
-class WordCommand extends CLICommand {
+
+class WordCommand extends AbstractCommand {
 	constructor() {
 		super();
 
@@ -27,6 +28,9 @@ class WordCommand extends CLICommand {
 		return "Text utilities for working with words.";
 	}
 
+	execute() {
+		this.help();
+	}
 }
 
 module.exports = WordCommand;

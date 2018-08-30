@@ -2,11 +2,20 @@
 
 "use strict";
 
-const CLICommand = require("AwesomeCLI").CLICommand;
+const AbstractCommand = require("AwesomeCLI").AbstractCommand;
 
-class WordFrequencyCommand extends CLICommand {
+
+class WordFrequencyCommand extends AbstractCommand {
 	constructor() {
 		super();
+	}
+
+	get title() {
+		return "textutils > word > frequency";
+	}
+
+	get usage() {
+		return "textutils [global options] word frequency";
 	}
 
 	get description() {

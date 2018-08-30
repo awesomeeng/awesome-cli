@@ -2,11 +2,20 @@
 
 "use strict";
 
-const CLICommand = require("AwesomeCLI").CLICommand;
+const AbstractCommand = require("AwesomeCLI").AbstractCommand;
 
-class WordUniqueCommand extends CLICommand {
+
+class WordUniqueCommand extends AbstractCommand {
 	constructor() {
 		super();
+	}
+
+	get title() {
+		return "textutils > word > unique";
+	}
+
+	get usage() {
+		return "textutils [global options] word unique [options]";
 	}
 
 	get description() {

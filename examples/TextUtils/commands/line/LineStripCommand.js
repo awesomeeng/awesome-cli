@@ -2,11 +2,20 @@
 
 "use strict";
 
-const CLICommand = require("AwesomeCLI").CLICommand;
+const AbstractCommand = require("AwesomeCLI").AbstractCommand;
 
-class LineStripCommand extends CLICommand {
+
+class LineStripCommand extends AbstractCommand {
 	constructor() {
 		super();
+	}
+
+	get title() {
+		return "textutils > line > strip";
+	}
+
+	get usage() {
+		return "textutils [global options] line strip";
 	}
 
 	get description() {

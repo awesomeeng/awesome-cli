@@ -2,9 +2,9 @@
 
 "use strict";
 
-const CLICommand = require("AwesomeCLI").CLICommand;
+const AbstractCommand = require("AwesomeCLI").AbstractCommand;
 
-class LineCommand extends CLICommand {
+class LineCommand extends AbstractCommand {
 	constructor() {
 		super();
 
@@ -18,13 +18,16 @@ class LineCommand extends CLICommand {
 	}
 
 	get usage() {
-		return "line [command]";
+		return "textutils [global options] line [command]";
 	}
 
 	get description() {
 		return "Text utilities for working with lines.";
 	}
 
+	execute() {
+		this.help();
+	}
 }
 
 module.exports = LineCommand;

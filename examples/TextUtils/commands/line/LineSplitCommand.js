@@ -2,11 +2,24 @@
 
 "use strict";
 
-const CLICommand = require("AwesomeCLI").CLICommand;
+const AbstractCommand = require("AwesomeCLI").AbstractCommand;
 
-class LineSplitCommand extends CLICommand {
+
+class LineSplitCommand extends AbstractCommand {
 	constructor() {
 		super();
+
+		this.addOption("number","boolean",false,"Add line numbers before each line.");
+		this.addOptionShortcut("n","number");
+		this.addOptionShortcut("ln","number");
+	}
+
+	get title() {
+		return "textutils > line > split";
+	}
+
+	get usage() {
+		return "textutils [global options] line split [options]";
 	}
 
 	get description() {
@@ -18,7 +31,7 @@ class LineSplitCommand extends CLICommand {
 		let lines = content && content.split(/\r\n|\n|\r|\f|\v/g) || [];
 		let size = (""+lines.length).length;
 		lines.forEach((line,i)=>{
-			console.log((""+i).padStart(size,"0")+": "+line);
+			console.log((options.number?(""+i).padStart(size,"0")+": ":"")+line);
 		});
 	}
 }

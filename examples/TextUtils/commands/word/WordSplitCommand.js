@@ -2,11 +2,20 @@
 
 "use strict";
 
-const CLICommand = require("AwesomeCLI").CLICommand;
+const AbstractCommand = require("AwesomeCLI").AbstractCommand;
 
-class WordSplitCommand extends CLICommand {
+
+class WordSplitCommand extends AbstractCommand {
 	constructor() {
 		super();
+	}
+
+	get title() {
+		return "textutils > word > split";
+	}
+
+	get usage() {
+		return "textutils [global options] word split";
 	}
 
 	get description() {
@@ -16,7 +25,7 @@ class WordSplitCommand extends CLICommand {
 	execute(args,options) {
 		let words = (options.content||"").replace(/[^-\w\d\x20\t]+/g," ").split(" ");
 		words.forEach((word)=>{
-			console.log(word);
+			if (word) console.log(word);
 		});
 	}
 }
