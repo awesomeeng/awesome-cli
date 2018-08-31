@@ -16,7 +16,7 @@ const AwesomeCLI = require("AwesomeCLI");
 //   doing. Note that if you were doing a sub-command CLI
 //   application, you wouldn't need to overload execute here.
 //
-class CLI extends AwesomeCLI {
+class CLI extends AwesomeCLI.CLI {
 	constructor() {
 		// Here we configure our overall CLI tool.
 		super({
@@ -35,17 +35,17 @@ class CLI extends AwesomeCLI {
 		this.addOptionShortcut("s","suffix");
 	}
 
-	execute() {
+	execute(args,options) {
 		// We overload the execute method if we are not using sub-commands.
-		if (this.options.help) {
+		if (options.help) {
 			// We need to call help ourselves if the user asks for it.
 			this.help();
 		}
 		else {
 			// otherwise, run our command.
-			let s = this.args.join(" ").replace(/[^\w\d-\s]/g,"").split(" ");
+			let s = args.join(" ").replace(/[^\w\d-\s]/g,"").split(" ");
 			s.forEach((word)=>{
-				console.log(this.options.prefix+word+this.options.suffix);
+				console.log(options.prefix+word+options.suffix);
 			});
 		}
 	}
@@ -55,8 +55,5 @@ class CLI extends AwesomeCLI {
 // Now, we instantiate our new CLI class.
 const cli = new CLI();
 
-// We call init to parse the arguments and set the options.
-cli.init();
-
 // Finally, we execute() to run our command.
-cli.execute();
+cli.run();
