@@ -2,6 +2,11 @@
 
 "use strict";
 
+/**
+ * Defines the AwesomeCLI main object, whcih returns pointer to the
+ * various AwesomeCLI classes.
+ */
+
 const AbstractCLI = require("./AbstractCLI");
 const AbstractCommand = require("./AbstractCommand");
 

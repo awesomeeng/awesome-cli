@@ -22,6 +22,14 @@ class CLIUtils{
 
 		let path,stat;
 
+		// try the filename relative to process.cwd()
+		path = Path.resolve(process.cwd(),filename);
+		stat = getStat(path);
+		if (stat) return {
+			filename: path,
+			stat
+		};
+
 		// try the filename relative to the module parent
 		if (module && module.parent) {
 			path = AwesomeUtils.Module.resolve(module.parent,filename);
@@ -31,14 +39,6 @@ class CLIUtils{
 				stat
 			};
 		}
-
-		// try the filename relative to process.cwd()
-		path = Path.resolve(process.cwd(),filename);
-		stat = getStat(path);
-		if (stat) return {
-			filename: path,
-			stat
-		};
 
 		// fail
 		return null;

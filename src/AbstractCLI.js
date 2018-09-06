@@ -13,24 +13,58 @@ const MissingCommandError = require("./MissingCommandError");
 const $OPTIONS = Symbol("options");
 const $SHORTCUTS = Symbol("shortcuts");
 
+/**
+ * Defines the shape of the root CLI including title, description, usage, help, and
+ * options/switches. Additionally this contains all of the functionality of
+ * running a CLI such as init, parseOptions, and run methods.
+ *
+ * This class is the base class for `AwesomeCLI.CLI` and `AwesomeCLI.CommandCLI`.
+ */
 class AbstractCLI {
+	/**
+	 * Constructs a new CLI.
+	 */
 	constructor() {
 		this[$OPTIONS] = {};
 		this[$SHORTCUTS] = {};
 	}
 
+	/**
+	 * Returns the title of this root CLI. Should be overloaded
+	 * by extending classes.
+	 *
+	 * @return {string}
+	 */
 	get title() {
 		return null;
 	}
 
+	/**
+	 * Returns the description of this root CLI. Should be overloaded
+	 * by extending classes.
+	 *
+	 * @return {string}
+	 */
 	get description() {
 		return null;
 	}
 
+	/**
+	 * Returns the usage of this root CLI. Should be overloaded
+	 * by sxtending classes.
+	 *
+	 * @return {string}
+	 */
 	get usage() {
 		return null;
 	}
 
+	/**
+	 * The default help implementation for a root CLI. Overload this
+	 * if you want to customize your help display.
+	 *
+	 * @return {void}
+	 */
 	help() {
 		if (this.title) {
 			console.log(this.title);
@@ -38,7 +72,7 @@ class AbstractCLI {
 
 		}
 
-		if (this.description) {
+		if (shis.description) {
 			console.log(this.description);
 			console.log();
 		}
@@ -101,6 +135,14 @@ class AbstractCLI {
 		}
 	}
 
+	/**
+	 * Called by the `run()` method to initiate the root command and
+	 * option parsing. Generally this doesn't need to be overloaded.
+	 *
+	 * @param  {Array} command lien arguments.
+	 * @param  {Object} parsed options and their values.
+	 * @return {Object} the parsed arguments and options.
+	 */
 	init(args,options) {
 		args = args || process.argv.slice(2);
 		let parsed = this.parseOptions(args,options);
@@ -110,6 +152,18 @@ class AbstractCLI {
 		return {args,options};
 	}
 
+	/**
+	 * Called when you start your CLI, this takes care of initializing, parsing
+	 * arguments, and ensuring everything is run smoothly.
+	 *
+	 * By and large there is zero reason to overload this. You should overload
+	 * `execute(args,options)`, `before(args,options)`, or `after(args,options)`
+	 * instead.
+	 *
+	 * @param  {Array} command lien arguments.
+	 * @param  {Object} parsed options and their values.
+	 * @return {Promise}
+	 */
 	run(args,options) {
 		return new Promise(async (resolve)=>{
 			try {
@@ -155,6 +209,12 @@ class AbstractCLI {
 		});
 	}
 
+	/**
+	 * Returns the object used to describe an option after it has been added.
+	 *
+	 * @param  {[type]} optionName
+	 * @return {[type]}
+	 */
 	getOption(optionName) {
 		if (!optionName) throw new Error("Missing optionName.");
 		if (typeof optionName!=="string") throw new Error("Invalid optionName.");
@@ -162,10 +222,31 @@ class AbstractCLI {
 		return this[$OPTIONS][optionName] && Object.assign({},this[$OPTIONS][optionName]) || null;
 	}
 
+	/**
+	 * Returns an array of all the option names that have been added.
+	 *
+	 * @return {[type]}
+	 */
 	getOptions() {
 		return Object.keys(this[$OPTIONS]);
 	}
 
+	/**
+	 * Adds a new options.
+	 *
+	 * **optionName** must be unique to this command and any descendant commands.
+	 *
+	 * **type** can be "*", "boolean", "number", or "string".
+	 *
+	 * **defaultvalue** is the value used if the option is not prvided.
+	 *
+	 * **description** is the help description for this option.
+	 *
+	 * @param {[type]} optionName
+	 * @param {string} [type="*"]
+	 * @param {[type]} [defaultValue=undefined]
+	 * @param {string} [description=""]
+	 */
 	addOption(optionName,type="*",defaultValue=undefined,description="") {
 		if (!optionName) throw new Error("Missing optionName.");
 		if (typeof optionName!=="string") throw new Error("Invalid optionName.");
@@ -178,6 +259,12 @@ class AbstractCLI {
 		this[$OPTIONS][optionName] = {optionName,type,defaultValue,description};
 	}
 
+	/**
+	 * Removes a given option.
+	 *
+	 * @param  {[type]} optionName
+	 * @return {[type]}
+	 */
 	removeOption(optionName) {
 		if (!optionName) throw new Error("Missing optionName.");
 		if (typeof optionName!=="string") throw new Error("Invalid optionName.");
@@ -185,6 +272,12 @@ class AbstractCLI {
 		delete this[$OPTIONS][optionName];
 	}
 
+	/**
+	 * Returns the Shortcut object for a given shortcut.
+	 *
+	 * @param  {[type]} shortcut
+	 * @return {[type]}
+	 */
 	getOptionShortcut(shortcut) {
 		if (!shortcut) throw new Error("Missing shortcut.");
 		if (typeof shortcut!=="string") throw new Error("Invalid shortcut.");
@@ -192,10 +285,22 @@ class AbstractCLI {
 		return this[$SHORTCUTS][shortcut];
 	}
 
+	/**
+	 * Returns an array of all the shortcut names added.
+	 *
+	 * @return {[type]}
+	 */
 	getOptionShortcuts() {
 		return Object.keys(this[$SHORTCUTS]);
 	}
 
+	/**
+	 * Adds a new option shortcut which maps the `shortcut` to a
+	 * specific `optionName`.
+	 *
+	 * @param {[type]} shortcut
+	 * @param {[type]} optionName
+	 */
 	addOptionShortcut(shortcut,optionName) {
 		if (!shortcut) throw new Error("Missing shortcut.");
 		if (typeof shortcut!=="string") throw new Error("Invalid shortcut.");
@@ -207,6 +312,12 @@ class AbstractCLI {
 		this[$SHORTCUTS][shortcut] = optionName;
 	}
 
+	/**
+	 * Removes an option shortcut.
+	 *
+	 * @param  {[type]} shortcut
+	 * @return {[type]}
+	 */
 	removeOptionShortcut(shortcut) {
 		if (!shortcut) throw new Error("Missing shortcut.");
 		if (typeof shortcut!=="string") throw new Error("Invalid shortcut.");
@@ -214,6 +325,16 @@ class AbstractCLI {
 		delete this[$SHORTCUTS][shortcut];
 	}
 
+	/**
+	 * Responsible for parsing the command line arguments and determining
+	 * what is an option and what is an argument.
+	 *
+	 * Generally there is no reason to overload this.
+	 *
+	 * @param  {Array} command lien arguments.
+	 * @param  {[type]} initialOptions
+	 * @return {[type]}
+	 */
 	parseOptions(args,initialOptions) {
 		let options = Object.assign({},initialOptions);
 

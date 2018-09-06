@@ -10,7 +10,7 @@ AwesomeCLI provides...
  - Command driven CLI usage pattern support;
  - Default but extensible help output;
  - Useful CLI utilities to speed development;
- - Options/Switches for fine-tuned CLIs;
+ - Options/Switches for configurable CLIs;
  - Nested Options with Commands for fine grained control;
  - Extensiblity for expanding needs.
 
@@ -69,7 +69,7 @@ class MyCLI extends AwesomeCLI.CLI {
 }
 ```
 
-You can also add shortcuts (aka "aliases") to yoru options/switches to provide easier usage for your users.  Adding a shortcut uses the `addShortcutOption(shortcut,optionName)` method where `shortcut` is the shortcut to add, and `optionName` is the option it maps to.  Note that the `optionName` you use must already have been defined prior to calling `addShortcutOption()`.
+You can also add shortcuts (aka "aliases") to your options/switches to provide easier usage for your users.  Adding a shortcut uses the `addShortcutOption(shortcut,optionName)` method where `shortcut` is the shortcut to add, and `optionName` is the option it maps to.  Note that the `optionName` you use must already have been defined prior to calling `addShortcutOption()`.
 
 4). Overload the `execute()` method...
 
@@ -180,7 +180,7 @@ class SomeCommand extends AwesomeCLI.AbstractCommand {
 
 ```
 
-Just like in your root class, the `construtor()` is where you add options and commands, and `execute(args,options)` is where you do your work. If creating a command which just houses other commands, implementing `execute()` should not be done. Only implement `execute(args,options)` in your end commands.
+Just like in your root class, the `construtor()` is where you add options and commands. You implement the actuall execution in the `execute(args,options)` method. **If creating a command which just houses other commands, implementing `execute()` should not be done. Only implement `execute(args,options)` in your end/leaf commands.**
 
 6). Instantiate and run your class...
 
@@ -197,7 +197,6 @@ mycli.run()
  - [Commands](./docs/Commands.md)
  - [Providing Help](./docs/Help.md)
  - [CLI Utilities](./docs/Utilities.md)
- - [Extending AwesomeCLI](./docs/Advanced_HTTP2.md)
 
  - [API Documentation](./docs/API.md)
 
