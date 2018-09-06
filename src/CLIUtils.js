@@ -9,7 +9,17 @@ const AwesomeUtils = require("AwesomeUtils");
 
 const $STDIN_DATA = Symbol("stdin_data");
 
+/**
+ * A selection of utilities to speed CLI development.
+ */
 class CLIUtils{
+	/**
+	 * Given some filename, resolve that filename relative to your current working directory, or
+	 * if that fails, against the directory of the calling module.
+	 *
+	 * @param  {string} filename 
+	 * @return {string}          
+	 */
 	resolve(filename) {
 		const getStat = (f)=>{
 			try {
@@ -44,6 +54,14 @@ class CLIUtils{
 		return null;
 	}
 
+	/**
+	 * Given some filename, read the contents of that file from the file
+	 * system and return it as a string.
+	 *
+	 * @param  {string} filename
+	 * @param  {string} [encoding="utf-8"]
+	 * @return {string}
+	 */
 	readFile(filename,encoding="utf-8") {
 		if (!filename) throw new Error("Missing filename.");
 		if (typeof filename!=="string") throw new Error("Invalid filename.");
@@ -84,6 +102,17 @@ class CLIUtils{
 		});
 	}
 
+	/**
+	 * If your CLI had data piped to it, this command will read that data from
+	 * the stdin pipe and return it as a string.  Subsequent calls to this
+	 * function will return a cached copy of the stdin data.
+	 *
+	 * Note, that this command is not intended to be used to read user
+	 * input from stdin. Please use node.js' `readline` library.
+	 *
+	 * @param  {string} [encoding="utf-8"]
+	 * @return {string}
+	 */
 	readSTDIN(encoding="utf-8") {
 		if (this[$STDIN_DATA]) return Promise.resolve(this[$STDIN_DATA]);
 		if (!process || !process.stdin || process.stdin.isTTY) return Promise.resolve("");

@@ -6,7 +6,7 @@ const AbstractCommand = require("./AbstractCommand");
 
 /**
  * THe root command for a command based CLI that uses sub-commands.
- * 
+ *
  * @extends AbstractCommand
  */
 class CommandCLI extends AbstractCommand {
