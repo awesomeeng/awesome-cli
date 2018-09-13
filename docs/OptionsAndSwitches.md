@@ -11,7 +11,7 @@ In CommandCLIs each level of your CLI can have its own set of options/switches t
 You add options in the constructor of any class that inherits from `AbstractCommand` which includes `AwesomeCLI.CLI` and `AwesomeCLI.CommandCLI`.
 
 ```
-const AwesomeCLI = require("awesome-cli");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 
 class MyCommand extends AwesomeCLI.AbstractCommand {
 	constructor() {

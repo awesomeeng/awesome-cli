@@ -3,7 +3,7 @@
 "use strict";
 
 // Require AwesomeCLI.
-const AwesomeCLI = require("awesome-cli");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 
 class CLI extends AwesomeCLI.CommandCLI {
 	constructor() {

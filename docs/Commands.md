@@ -9,7 +9,7 @@ It all begins with the root command, which is the entry point for your CLI appli
 The root command begins by extending the `AwesomeCLI.CommandCLI` class, like this:
 
 ```
-const AwesomeCLI = require("awesome-cli");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 
 class MyCommandCLI extends AwesomeCLI.CommandCLI {
 	...
@@ -19,7 +19,7 @@ class MyCommandCLI extends AwesomeCLI.CommandCLI {
 You add global options for all of your commands in the constructor of your root command:
 
 ```
-const AwesomeCLI = require("awesome-cli");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 
 class MyLeafCommand extends AwesomeCLI.AbstractCommand {
 	constructor() {
@@ -45,7 +45,7 @@ this.addOptionShortcut("s","source"); // maps --s to ---source
 Once you have add your options, then you add your sub-commands to the constructor as well, as shown here:
 
 ```
-const AwesomeCLI = require("awesome-cli");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 
 class MyLeafCommand extends AwesomeCLI.AbstractCommand {
 	constructor() {
@@ -81,7 +81,7 @@ A sub-command command is a command that takes further sub-commands. The root com
 First, you build a sub-class of the AbstractCommand class:
 
 ```
-const AwesomeCLI = require("awesome-cli");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 
 class MySubCommand extends AwesomeCLI.AbstractCommand {
 	...
@@ -91,7 +91,7 @@ class MySubCommand extends AwesomeCLI.AbstractCommand {
 In your constructor you may have options. Options here are applied and passed to each sub-command, but do not effect the global options structure.
 
 ```
-const AwesomeCLI = require("awesome-cli");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 
 class MySubCommand extends AwesomeCLI.AbstractCommand {
 	constructor() {
@@ -131,7 +131,7 @@ Leaf commands are where you CLI does its work. It has all the information to do 
 You implement a Leaf Command, but overloading the `execute(args,options)` method, as shown here:
 
 ```
-const AwesomeCLI = require("awesome-cli");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 
 class MyLeafCommand extends AwesomeCLI.AbstractCommand {
 	constructor() {
