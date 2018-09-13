@@ -62,7 +62,7 @@ Commands are added with the 'addCommand(name,command)' function. The `addCommand
 
  - **function** commands, are simple functions that get passed the signature `(args,options)` when the command is executed. This approach is great for very simple "command CLIs".
 
- - **filenane** commands will, if the file exists and exports a sub-class of the `AwesomeCLI.AbstractCommand` class, load it as javascript, and create an instance of it.  This lets you write sub-commands in their own class space and easily load them into AwesomeCLI. **This is the best approach to doing commands and highly recommended.**
+ - **filename** commands will, if the file exists and exports a sub-class of the `AwesomeCLI.AbstractCommand` class, load it as javascript, and create an instance of it.  This lets you write sub-commands in their own class space and easily load them into AwesomeCLI. **This is the best approach to doing commands and highly recommended.**
 
  - **AbstractCommmand** commands, are similar to **filename** commands, but they dont do the loading as you are already providing the loaded instance to AwesomeCLI.
 
@@ -118,7 +118,7 @@ Once you have add your options, then you add your sub-commands to the constructo
 
  - **function** commands, are simple functions that get passed the signature `(args,options)` when the command is executed. This approach is great for very simple "command CLIs".
 
- - **filenane** commands will, if the file exists and exports a sub-class of the `AwesomeCLI.AbstractCommand` class, load it as javascript, and create an instance of it.  This lets you write sub-commands in their own class space and easily load them into AwesomeCLI. **This is the best approach to doing commands and highly recommended.**
+ - **filename** commands will, if the file exists and exports a sub-class of the `AwesomeCLI.AbstractCommand` class, load it as javascript, and create an instance of it.  This lets you write sub-commands in their own class space and easily load them into AwesomeCLI. **This is the best approach to doing commands and highly recommended.**
 
  - **AbstractCommmand** commands, are similar to **filename** commands, but they dont do the loading as you are already providing the loaded instance to AwesomeCLI.
 
@@ -158,7 +158,7 @@ Each instance of AbstractCommand, whether a sub-command command or a leaf comman
 
  - `get description() {}` - Returns the [string] description about this command. This does not need to include options/switches as those are covered in the `addOption()` calls you made in the constructor.
 
-If you fill out these three getters, your help will produce a defula thelp screen that should be enough for most cases. It includes the `title`, `usage`, `description` your provided; it also will provide help about any switches or sub-commands that you created in the construtor.
+If you fill out these three getters, your help will produce a default help screen that should be enough for most cases. It includes the `title`, `usage`, `description` your provided; it also will provide help about any switches or sub-commands that you created in the construtor.
 
 ## Before/After
 

@@ -21,7 +21,7 @@ Of course, you are free to come up with your own ways to show help, simply call 
 
 ## Default Help
 
-By default AwesomeCLI provides a basic help display. IF yoiu do nothing you get this for free.  I looks like this:
+By default AwesomeCLI provides a basic help display. If you do nothing you get this for free.  I looks like this:
 
 ```
 textutils
@@ -55,4 +55,4 @@ Finally, if you have any sub-commands they are shown.
 
 ## Overloading Help
 
-You are free to overload the `help()` method of any `AbstractCommand` including `AwesomeCLI.CLI` and `AwesomeCLI.CommandCLI`. Just overload the method and print out whatever helo you want.
+You are free to overload the `help()` method of any `AbstractCommand` including `AwesomeCLI.CLI` and `AwesomeCLI.CommandCLI`. Just overload the method and print out whatever help message you want.

@@ -4,7 +4,9 @@ Any command that you implement, including the root command, can have its own opt
 
 # Scope
 
-In CommandCLIs each level of your CLI can have its own set of options/switches that will be propagated to its sub-command, but not to its ancestor or sibling commands.  This makes for a very powerful CLI strucutre.
+In CommandCLIs each level of your CLI can have its own set of options/switches that will be propagated to its sub-command, but not to its ancestor or sibling commands.  This makes for a very powerful CLI strucutre
+
+So if you had a root command called `root` and a sub-command command called `foo` and a leaf command called `bar`, options defined in `root` get passed down to `foo` and `bar`. Options defined in `foo` get passed to `bar` but not `root`.
 
 # Adding Options
 
