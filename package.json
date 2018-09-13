@@ -1,21 +1,43 @@
 {
-    "name": "AwesomeCLI",
-    "version": "1.0.0",
-    "author": "the awesome engineering company",
-    "license": "(c) 2018, The Awesome Engineering Company, inc",
-    "contributors": [{
-        "name": "Glen R. Goodwin"
-    }],
-	"main": "./src/AwesomeCLI.js",
-    "engines": {
-        "node": ">=10.5.0"
-    },
-    "dependencies": {
-		"@AwesomeEng/AwesomeUtils": "~1.0.0"
-    },
-    "devDependencies": {
-        "mocha": "*"
-    },
-    "optionalDependencies": {
-    }
+  "name": "@awesomeeng/awesome-cli",
+  "version": "1.0.0",
+  "author": "the awesome engineering company",
+  "license": "MIT",
+  "contributors": [
+    "Glen R. Goodwin"
+  ],
+  "main": "./src/AwesomeCLI.js",
+  "engines": {
+    "node": ">=10.5.0"
+  },
+  "dependencies": {
+    "@awesomeeng/awesome-utils": "1.0.0"
+  },
+  "devDependencies": {
+    "jsdoc-to-markdown": "*",
+    "mocha": "*"
+  },
+  "optionalDependencies": {},
+  "scripts": {
+    "docs": "jsdoc2md src/** --separators > docs/API.md"
+  },
+  "description": "AwesomeCLI is a simple framework for building enterpreise ready Command Line Interface (CLI) tools. It supports standard or command based CLI interaction, for all your CLI building needs.",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awesomeeng/awesome-cli.git"
+  },
+  "keywords": [
+    "awesome",
+    "awesomeeng",
+    "awesome",
+    "engineering"
+  ],
+  "bugs": {
+    "url": "https://github.com/awesomeeng/awesome-cli/issues"
+  },
+  "homepage": "https://github.com/awesomeeng/awesome-cli#readme"
 }

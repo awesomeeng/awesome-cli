@@ -3,7 +3,7 @@
 "use strict";
 
 // Require AwesomeCLI.
-const AwesomeCLI = require("AwesomeCLI");
+const AwesomeCLI = require("awesome-cli");
 
 
 // Extends AwesomeCLI with your own class. Make sure to...

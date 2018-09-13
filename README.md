@@ -29,7 +29,7 @@ AwesomeCLI provides...
 
 Couldn't be easier.
 ```
-npm install --save @awesomeeng/AwesomeCLI
+npm install --save @awesomeeng/awesome-cli
 ```
 
 ## Singular CLIs
