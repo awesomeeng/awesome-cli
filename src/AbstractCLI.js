@@ -139,7 +139,7 @@ class AbstractCLI {
 	 * Called by the `run()` method to initiate the root command and
 	 * option parsing. Generally this doesn't need to be overloaded.
 	 *
-	 * @param  {Array} command lien arguments.
+	 * @param  {Array} command line arguments.
 	 * @param  {Object} parsed options and their values.
 	 * @return {Object} the parsed arguments and options.
 	 */
@@ -160,7 +160,7 @@ class AbstractCLI {
 	 * `execute(args,options)`, `before(args,options)`, or `after(args,options)`
 	 * instead.
 	 *
-	 * @param  {Array} command lien arguments.
+	 * @param  {Array} command line arguments.
 	 * @param  {Object} parsed options and their values.
 	 * @return {Promise}
 	 */
@@ -212,8 +212,8 @@ class AbstractCLI {
 	/**
 	 * Returns the object used to describe an option after it has been added.
 	 *
-	 * @param  {[type]} optionName
-	 * @return {[type]}
+	 * @param  {string} optionName
+	 * @return {Object}
 	 */
 	getOption(optionName) {
 		if (!optionName) throw new Error("Missing optionName.");
@@ -225,7 +225,7 @@ class AbstractCLI {
 	/**
 	 * Returns an array of all the option names that have been added.
 	 *
-	 * @return {[type]}
+	 * @return {Array<string>}
 	 */
 	getOptions() {
 		return Object.keys(this[$OPTIONS]);
@@ -242,9 +242,9 @@ class AbstractCLI {
 	 *
 	 * **description** is the help description for this option.
 	 *
-	 * @param {[type]} optionName
+	 * @param {string} optionName
 	 * @param {string} [type="*"]
-	 * @param {[type]} [defaultValue=undefined]
+	 * @param {*} [defaultValue=undefined]
 	 * @param {string} [description=""]
 	 */
 	addOption(optionName,type="*",defaultValue=undefined,description="") {
@@ -262,8 +262,8 @@ class AbstractCLI {
 	/**
 	 * Removes a given option.
 	 *
-	 * @param  {[type]} optionName
-	 * @return {[type]}
+	 * @param  {string} optionName
+	 * @return {void}
 	 */
 	removeOption(optionName) {
 		if (!optionName) throw new Error("Missing optionName.");
@@ -275,8 +275,8 @@ class AbstractCLI {
 	/**
 	 * Returns the Shortcut object for a given shortcut.
 	 *
-	 * @param  {[type]} shortcut
-	 * @return {[type]}
+	 * @param  {string} shortcut
+	 * @return {string}
 	 */
 	getOptionShortcut(shortcut) {
 		if (!shortcut) throw new Error("Missing shortcut.");
@@ -288,7 +288,7 @@ class AbstractCLI {
 	/**
 	 * Returns an array of all the shortcut names added.
 	 *
-	 * @return {[type]}
+	 * @return {Array<string>}
 	 */
 	getOptionShortcuts() {
 		return Object.keys(this[$SHORTCUTS]);
@@ -298,8 +298,8 @@ class AbstractCLI {
 	 * Adds a new option shortcut which maps the `shortcut` to a
 	 * specific `optionName`.
 	 *
-	 * @param {[type]} shortcut
-	 * @param {[type]} optionName
+	 * @param {string} shortcut
+	 * @param {string} optionName
 	 */
 	addOptionShortcut(shortcut,optionName) {
 		if (!shortcut) throw new Error("Missing shortcut.");
@@ -315,8 +315,8 @@ class AbstractCLI {
 	/**
 	 * Removes an option shortcut.
 	 *
-	 * @param  {[type]} shortcut
-	 * @return {[type]}
+	 * @param  {string} shortcut
+	 * @return {void}
 	 */
 	removeOptionShortcut(shortcut) {
 		if (!shortcut) throw new Error("Missing shortcut.");
@@ -331,9 +331,9 @@ class AbstractCLI {
 	 *
 	 * Generally there is no reason to overload this.
 	 *
-	 * @param  {Array} command lien arguments.
-	 * @param  {[type]} initialOptions
-	 * @return {[type]}
+	 * @param  {Array} command line arguments.
+	 * @param  {Object} initialOptions
+	 * @return {Object}
 	 */
 	parseOptions(args,initialOptions) {
 		let options = Object.assign({},initialOptions);

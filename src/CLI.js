@@ -51,7 +51,9 @@ class CLI extends AbstractCLI {
 	/**
 	 * Overload `execute(args,options)` to do your work.
 	 *
-	 * @return {[type]} [description]
+	 * @param {Array} args
+	 * @param {Object} options
+	 * @return {void|Promise} 
 	 */
 	execute(/*args,options*/) {
 	}
