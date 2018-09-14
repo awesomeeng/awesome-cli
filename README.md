@@ -41,7 +41,7 @@ To use AwesomeCLI in "singular" mode is super simple...
 1). Require AwesomeCLI...
 
 ```
-const AwesomeCLI = require("AwesomeCLI");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 ```
 
 2). Extend `AwesomeCLI.CLI` with your own class...
@@ -146,7 +146,7 @@ To use AwesomeCLI in "command" mode is super simple...
 1). Require AwesomeCLI...
 
 ```
-const AwesomeCLI = require("AwesomeCLI");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 ```
 
 2). Extend `AwesomeCLI.CommandCLI` with your own class...
@@ -206,7 +206,7 @@ The `addCommand(name,command)` method can take as it second argument, a function
 ```
 // SomeCommand.js
 
-const AwesomeCLI = require("AwesomeCLI");
+const AwesomeCLI = require("@awesomeeng/awesome-cli");
 
 class SomeCommand extends AwesomeCLI.AbstractCommand {
 	constructor() {
