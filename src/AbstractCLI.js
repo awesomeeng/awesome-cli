@@ -72,7 +72,7 @@ class AbstractCLI {
 
 		}
 
-		if (shis.description) {
+		if (this.description) {
 			console.log(this.description);
 			console.log();
 		}

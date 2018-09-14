@@ -17,8 +17,8 @@ class CLIUtils{
 	 * Given some filename, resolve that filename relative to your current working directory, or
 	 * if that fails, against the directory of the calling module.
 	 *
-	 * @param  {string} filename 
-	 * @return {string}          
+	 * @param  {string} filename
+	 * @return {string}
 	 */
 	resolve(filename) {
 		const getStat = (f)=>{
