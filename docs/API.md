@@ -155,7 +155,7 @@ option parsing. Generally this doesn't need to be overloaded.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | parsed | <code>Object</code> | options and their values. |
 
 
@@ -175,7 +175,7 @@ instead.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | parsed | <code>Object</code> | options and their values. |
 
 
@@ -308,7 +308,7 @@ Generally there is no reason to overload this.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | initialOptions | <code>Object</code> |  |
 
 
@@ -500,7 +500,7 @@ option parsing. Generally this doesn't need to be overloaded.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | parsed | <code>Object</code> | options and their values. |
 
 
@@ -633,7 +633,7 @@ Generally there is no reason to overload this.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | initialOptions | <code>Object</code> |  |
 
 
@@ -757,7 +757,7 @@ option parsing. Generally this doesn't need to be overloaded.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | parsed | <code>Object</code> | options and their values. |
 
 
@@ -777,7 +777,7 @@ instead.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | parsed | <code>Object</code> | options and their values. |
 
 
@@ -910,7 +910,7 @@ Generally there is no reason to overload this.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | initialOptions | <code>Object</code> |  |
 
 
@@ -1159,7 +1159,7 @@ option parsing. Generally this doesn't need to be overloaded.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | parsed | <code>Object</code> | options and their values. |
 
 
@@ -1292,7 +1292,7 @@ Generally there is no reason to overload this.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | initialOptions | <code>Object</code> |  |
 
 
@@ -1453,7 +1453,7 @@ option parsing. Generally this doesn't need to be overloaded.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | parsed | <code>Object</code> | options and their values. |
 
 
@@ -1473,7 +1473,7 @@ instead.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | parsed | <code>Object</code> | options and their values. |
 
 
@@ -1606,7 +1606,7 @@ Generally there is no reason to overload this.
 
 | Param | Type | Description |
 | --- | --- | --- |
-| command | <code>Array</code> | lien arguments. |
+| command | <code>Array</code> | line arguments. |
 | initialOptions | <code>Object</code> |  |
 
 
