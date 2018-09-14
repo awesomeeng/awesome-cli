@@ -16,7 +16,6 @@ AwesomeCLI provides...
 
 ## Contents
  - [Installation](#installation)
- - [Setup](#setup)
  - [Singular CLIs](#singular-clis)
  - [Command CLIs](#command-clis)
  - [Documentation](#documentation)
@@ -258,4 +257,4 @@ To learn more about The Awesome Engineering Company and our suite of products, v
 
 ## License
 
-AwesomeCLI is released under the MIT License. Please read the  [LICENSE](https://raw.githubusercontent.com/awesomeeng/AwesomeCLI/master/LICENSE?token=ABA2_wogpYds4a1qC_4aeUZd8C1in6Qcks5bUiQFwA%3D%3D) file for details.
+AwesomeCLI is released under the MIT License. Please read the  [LICENSE](./LICENSE) file for details.
