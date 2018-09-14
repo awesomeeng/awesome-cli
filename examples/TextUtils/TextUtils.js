@@ -4,13 +4,14 @@
 
 // Require AwesomeCLI.
 const AwesomeCLI = require("@awesomeeng/awesome-cli");
+const AwesomeUtils = require("@awesomeeng/awesome-utils");
 
 class CLI extends AwesomeCLI.CommandCLI {
 	constructor() {
 		super();
 
-		this.addCommand("line","./commands/LineCommand.js");
-		this.addCommand("word","./commands/WordCommand.js");
+		this.addCommand("line",AwesomeUtils.Module.resolve(module,"./commands/LineCommand.js"));
+		this.addCommand("word",AwesomeUtils.Module.resolve(module,"./commands/WordCommand.js"));
 
 		this.addOption("source","string",null,"Specify a source file.");
 		this.addOptionShortcut("src","source");

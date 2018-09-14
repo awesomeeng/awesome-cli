@@ -2,15 +2,16 @@
 
 "use strict";
 
-const AbstractCommand = require("AwesomeCLI").AbstractCommand;
+const AbstractCommand = require("@awesomeeng/awesome-cli").AbstractCommand;
+const AwesomeUtils = require("@awesomeeng/awesome-utils");
 
 class LineCommand extends AbstractCommand {
 	constructor() {
 		super();
 
-		this.addCommand("count","./commands/line/LineCountCommand.js");
-		this.addCommand("split","./commands/line/LineSplitCommand.js");
-		this.addCommand("strip","./commands/line/LineStripCommand.js");
+		this.addCommand("count",AwesomeUtils.Module.resolve(module,"./line/LineCountCommand.js"));
+		this.addCommand("split",AwesomeUtils.Module.resolve(module,"./line/LineSplitCommand.js"));
+		this.addCommand("strip",AwesomeUtils.Module.resolve(module,"./line/LineStripCommand.js"));
 	}
 
 	get title() {

@@ -2,18 +2,18 @@
 
 "use strict";
 
-const AbstractCommand = require("AwesomeCLI").AbstractCommand;
-
+const AbstractCommand = require("@awesomeeng/awesome-cli").AbstractCommand;
+const AwesomeUtils = require("@awesomeeng/awesome-utils");
 
 class WordCommand extends AbstractCommand {
 	constructor() {
 		super();
 
-		this.addCommand("count","./commands/word/WordCountCommand.js");
-		this.addCommand("freq","./commands/word/WordFrequencyCommand.js");
-		this.addCommand("frequency","./commands/word/WordFrequencyCommand.js");
-		this.addCommand("split","./commands/word/WordSplitCommand.js");
-		this.addCommand("unique","./commands/word/WordUniqueCommand.js");
+		this.addCommand("count",AwesomeUtils.Module.resolve(module,"./word/WordCountCommand.js"));
+		this.addCommand("freq",AwesomeUtils.Module.resolve(module,"./word/WordFrequencyCommand.js"));
+		this.addCommand("frequency",AwesomeUtils.Module.resolve(module,"./word/WordFrequencyCommand.js"));
+		this.addCommand("split",AwesomeUtils.Module.resolve(module,"./word/WordSplitCommand.js"));
+		this.addCommand("unique",AwesomeUtils.Module.resolve(module,"./word/WordUniqueCommand.js"));
 	}
 
 	get title() {

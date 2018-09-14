@@ -1,13 +1,14 @@
 {
-    "name": "AwesomeCLI/Examples/SingleCLI",
+    "name": "awesome-cli/examples/TextUtils",
     "version": "1.0.0",
     "author": "the awesome engineering company",
     "license": "(c) 2018, The Awesome Engineering Company, inc",
-    "main": "./CLI.js",
+    "main": "./TextUtils.js",
     "engines": {
         "node": ">=10.5.0"
     },
     "dependencies": {
-        "@AwesomeEng/AwesomeCLI": "*"
+        "@awesomeeng/awesome-cli": "*",
+        "@awesomeeng/awesomeutils-cli": "^1.0.1"
     }
 }

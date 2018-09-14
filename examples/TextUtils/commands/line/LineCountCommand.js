@@ -2,7 +2,7 @@
 
 "use strict";
 
-const AbstractCommand = require("AwesomeCLI").AbstractCommand;
+const AbstractCommand = require("@awesomeeng/awesome-cli").AbstractCommand;
 
 
 class LineCountCommand extends AbstractCommand {
