@@ -61,7 +61,7 @@ class MyCLI extends AwesomeCLI.CLI {
 		super();
 
 		this.addOption("something","boolean",true,"Toggles something on/off.");
-		this.addOption("another","string"null,"Provides input to your CLI.");
+		this.addOption("another","string",null,"Provides input to your CLI.");
 
 		this.addOptionShortcut("a","another"); // maps --a to --another
 	}
@@ -167,7 +167,7 @@ class MyCLI extends AwesomeCLI.CommandCLI {
 		super();
 
 		this.addOption("something","boolean",true,"Toggles something on/off.");
-		this.addOption("another","string"null,"Provides input to your CLI.");
+		this.addOption("another","string",null,"Provides input to your CLI.");
 
 		this.addOptionShortcut("a","another"); // maps --a to --another
 	}
