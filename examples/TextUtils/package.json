@@ -9,6 +9,6 @@
     },
     "dependencies": {
         "@awesomeeng/awesome-cli": "*",
-        "@awesomeeng/awesomeutils-cli": "^1.0.1"
+        "@awesomeeng/awesome-utils": "^1.0.1"
     }
 }

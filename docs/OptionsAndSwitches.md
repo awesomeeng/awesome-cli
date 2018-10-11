@@ -38,7 +38,7 @@ this.addOptionShortcut("s","source"); // maps --s to ---source
 
 ## Options Parsing
 
-The `AbstractCommand` class takes care of parsing options out of the arguments.  Any switch/option delimiter ("--" or "-" by default) that comes before any sub-command is parsed as an option.  For example in the command `npm -g install -xyz @AwesomeEng/AwesomeLog` the "-g" option is parsed out and applied to the "npm" command class (the root command in this case). "-xyz" is parsed out and applied to the "install" sub-command.
+The `AbstractCommand` class takes care of parsing options out of the arguments.  Any switch/option delimiter ("--" or "-" by default) that comes before any sub-command is parsed as an option.  For example in the command `npm -g install -xyz @awesomeeng/awesome-log` the "-g" option is parsed out and applied to the "npm" command class (the root command in this case). "-xyz" is parsed out and applied to the "install" sub-command.
 
 In your `execute(args,options)` method, the options you define and parsed into the `options` object, and the remaining arguments are in the `args` array.
 
