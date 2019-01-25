@@ -264,7 +264,7 @@ class AbstractCommand extends AbstractCLI {
 					ex instanceof MissingCommandError ||
 					ex instanceof MissingOptionValueError
 				) {
-					console.error(ex.message);
+					console.error(ex);
 				}
 				else {
 					console.error(ex);
