@@ -1,5 +1,9 @@
 # AwesomeCLI Release Notes
 
+#### **Version 1.0.3**
+
+ - Updating external dependency versions.
+
 #### **Version 1.0.2**
 
  - Changed so that errors show stack trace. This may change back later.
