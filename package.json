@@ -11,7 +11,7 @@
     "node": ">=10.5.0"
   },
   "dependencies": {
-    "@awesomeeng/awesome-utils": "^1.0.1"
+    "@awesomeeng/awesome-utils": "^1.4.7"
   },
   "devDependencies": {
     "jsdoc-to-markdown": "*",
@@ -19,7 +19,8 @@
   },
   "optionalDependencies": {},
   "scripts": {
-    "docs": "jsdoc2md src/** --separators > docs/API.md"
+	  "lint": "eslint src examples",
+      "docs": "jsdoc2md src/** --separators > docs/API.md"
   },
   "description": "AwesomeCLI is a simple framework for building enterprise ready Command Line Interface (CLI) tools. It supports standard or command based CLI interaction, global and local switches/options, and useful utilities to speed your tool development time.  It's all your cLI needs in one.",
   "directories": {
@@ -35,20 +36,20 @@
     "awesomeeng",
     "awesome",
     "engineering",
-	"cli",
-	"command",
-	"command line",
-	"command line interface",
-	"command-line",
-	"commandline",
-	"cli tool",
-	"cli pipe",
-	"commands",
-	"command lines",
-	"cli args",
-	"cli options",
-	"command line args",
-	"command line options"
+    "cli",
+    "command",
+    "command line",
+    "command line interface",
+    "command-line",
+    "commandline",
+    "cli tool",
+    "cli pipe",
+    "commands",
+    "command lines",
+    "cli args",
+    "cli options",
+    "command line args",
+    "command line options"
   ],
   "bugs": {
     "url": "https://github.com/awesomeeng/awesome-cli/issues"
