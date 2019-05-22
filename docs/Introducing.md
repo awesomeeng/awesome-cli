@@ -1,35 +1,40 @@
-# AwesomeCLI
+# [AwesomeCLI](../README.md) > Introducing AwesomeCLI
 
-AwesomeCLI is a simple framework for building enterprise ready Command Line Interface (CLI) tools. It supports standard or command based CLI interaction, global and local switches/options, and useful utilities to speed your tool development time.  It's all your cLI needs in one.
+AwesomeCLI is a library for rapidly building Command Line Interface (CLI) tools for usage with enterprise ready nodejs applications. It provides a basic CLI scaffold around which you can create either Singular CLIs or Command-Driven CLIs.  AwesomeCLI handles all the details of a CLI for you such as parsing commands, options/switches, help, etc.
 
-## Features
+A "singular CLI" is one that does one thing and does it well. `cat` for example, is a singluar CLI. A "command CLI" is one that takes one or more commands as arguments and each command provides a separate behavior. `git` for example, is a command CLI; it relies on the user passing additional commands to it to function (e.g. `git commit` where commit is the command).
 
-AwesomeCLI provides...
- - Ease of development;
- - Singular CLI usage pattern support;
- - or Command driven CLI usage pattern support;
- - Options/Switches for configurable CLIs;
- - Nested Options with Commands for fine grained control;
- - Default but extensible help output;
- - Useful CLI utilities to speed development;
- - Extensiblity for expanding needs.
+## Key Features
 
-## Contents
- - [Installation](#installation)
- - [Singular CLIs](#singular-clis)
- - [Command CLIs](#command-clis)
- - [Documentation](#documentation)
- - [Examples](#examples)
- - [Awesome Engineering](#the-awesome-engineering-company)
- - [Support and Help](#support-and-help)
- - [License](#license)
+ - **Easy**. Writing a CLI with AwesomeCLI is super easy and fast.
 
-## Installation
+ - **Singular or Command CLIs**. Choose if you want to build a singular CLI or a command-driven CLI.
 
-Couldn't be easier.
+ - **Options/Switches**. AwesomeCLI handles options and switches for you, including aliases and nested options.
+
+ - **Help**. Builtin basic help screens for your users, easily overloadable for custom screens.
+
+ - **CLI Utilities**. Useful CLI utilities to speed development.
+
+ - **Extensiblity**. For all your CLI needs no matter how simple or how complex.
+
+ - **No External Dependencies**. AwesomeCLI is written and maintained by The Awesome Engineering Company and has no dependency that was not written by us. This means consistency of code throughout the product and that we have zero dependencies that were not written inhouse.  This means safer code for you and your product.
+
+ - **Free and Open**. AwesomeCLI is released under the MIT licene and complete free to use and modify.
+
+## Getting Started
+
+AwesomeCLI is super easy to use.
+
+#### 1). Install It.
+
+```shell
+npm install @awesomeeng/awesome-log
 ```
-npm install --save @awesomeeng/awesome-cli
-```
+
+#### 2). Build it.
+
+At this point you will need to determine what type of CLI you want to build.  Will it be a singular CLI or do you want to support nested sub-commands?  The choice is yours to make, but how you proceed programmatically depends on which choice you select.
 
 ## Singular CLIs
 
@@ -37,13 +42,13 @@ A "singular CLI" is one that does one thing and does it well.  `cat` for example
 
 To use AwesomeCLI in "singular" mode is super simple...
 
-1). Require AwesomeCLI...
+#### 1). Require AwesomeCLI...
 
 ```
 const AwesomeCLI = require("@awesomeeng/awesome-cli");
 ```
 
-2). Extend `AwesomeCLI.CLI` with your own class...
+#### 2). Extend `AwesomeCLI.CLI` with your own class...
 
 ```
 class MyCLI extends AwesomeCLI.CLI {
@@ -51,7 +56,7 @@ class MyCLI extends AwesomeCLI.CLI {
 }
 ```
 
-3). Add any options/switches you need in the constructor...
+#### 3). Add any options/switches you need in the constructor...
 
 You use `addOption(name,type,defaultValue,description)` to add options/switches. AwesomeCLI will parse the command line arguments for these switches and translate them into the options argument that is passsed to your `execute(args,options)` method.
 
@@ -70,7 +75,7 @@ class MyCLI extends AwesomeCLI.CLI {
 
 You can also add shortcuts (aka "aliases") to your options/switches to provide easier usage for your users.  Adding a shortcut uses the `addShortcutOption(shortcut,optionName)` method where `shortcut` is the shortcut to add, and `optionName` is the option it maps to.  Note that the `optionName` you use must already have been defined prior to calling `addShortcutOption()`.
 
-4). Overload the `execute()` method...
+#### 4). Overload the `execute()` method...
 
 Execute is where you do your work, so overloading is key...
 
@@ -86,7 +91,7 @@ Execute can return a `Promise`, if you need to do asyncronous work.
 
 You also may implement `before(args,options)` and `after(args,options)` if you want to do pre or post work.
 
-5). Instantiate and run your class...
+#### 5). Instantiate and run your class...
 
 Once your class is defined, create an instance of it and then execute its `run()` method.
 
@@ -142,13 +147,13 @@ A "command CLI" is one that takes one or more commands as arguments. Contrast th
 
 To use AwesomeCLI in "command" mode is super simple...
 
-1). Require AwesomeCLI...
+#### 1). Require AwesomeCLI...
 
 ```
 const AwesomeCLI = require("@awesomeeng/awesome-cli");
 ```
 
-2). Extend `AwesomeCLI.CommandCLI` with your own class...
+#### 2). Extend `AwesomeCLI.CommandCLI` with your own class...
 
 ```
 class MyCLI extends AwesomeCLI.CommandCLI {
@@ -156,7 +161,7 @@ class MyCLI extends AwesomeCLI.CommandCLI {
 }
 ```
 
-3). Add any options/switches you need in the constructor...
+#### 3). Add any options/switches you need in the constructor...
 
 In "command CLIs" each command has its own set of options.  Options you specify in your root class (that which extends `AwesomeCLI.CommandCLI`) are considered "global options" and modify the options object passed to each of your commands. Note that each command gets its own `args` and `options` passed to if; modifying either of these in a command will only expose those to descendant commands, not to sibling commands.
 
@@ -174,7 +179,7 @@ class MyCLI extends AwesomeCLI.CommandCLI {
 }
 ```
 
-4). Add the next level of commands to the constructor as well...
+#### 4). Add the next level of commands to the constructor as well...
 
 ```
 class MyCLI extends AwesomeCLI.CommandCLI {
@@ -200,7 +205,7 @@ The `addCommand(name,command)` method can take as it second argument, a function
 
  - **AbstractCommmand** commands, are similar to **filename** commands, but they dont do the loading as you are already providing the loaded instance to AwesomeCLI.
 
-5). Implement your `AwesomeCLI.AbstractCommand` classes as needed:
+#### 5). Implement your `AwesomeCLI.AbstractCommand` classes as needed:
 
 ```
 // SomeCommand.js
@@ -221,7 +226,7 @@ class SomeCommand extends AwesomeCLI.AbstractCommand {
 
 Just like in your root class, the `construtor()` is where you add options and commands. You implement the actual execution in the `execute(args,options)` method. **If creating a command which just houses other commands, implementing `execute()` should not be done. Only implement `execute(args,options)` in your end/leaf commands.**
 
-6). Instantiate and run your class...
+#### 6). Instantiate and run your class...
 
 Once everything is defined and your sub-command classes setup, create an instance of your root class and then execute its `run()` method.
 
@@ -232,31 +237,30 @@ mycli.run()
 
 ## Documentation
 
- - [Options/Switches](./docs/OptionsAndSwitches.md)
- - [Commands](./docs/Commands.md)
- - [Providing Help](./docs/Help.md)
- - [CLI Utilities](./docs/Utilities.md)
+That's the basics of AwesomeCLI, but there is of course a lot more to it.
 
- - [API Documentation](./docs/API.md)
+At this point, we suggest you check the [project readme](https://github.com/awesomeeng/awesome-cli) out. Additionally there is specific documentation for options/switches, commands, help, and CLI utilities.
 
-## Examples
+ - [Read Me First!](https://github.com/awesomeeng/awesome-cli)
+ - [Options/Switches](https://github.com/awesomeeng/awesome-cli/blob/master/docs/OptionsAndSwitches.md)
+ - [Commands](https://github.com/awesomeeng/awesome-cli/blob/master/docs/Commands.md)
+ - [Providing Help](https://github.com/awesomeeng/awesome-cli/blob/master/docs/Help.md)
+ - [CLI Utilities](https://github.com/awesomeeng/awesome-cli/blob/master/docs/Utilities.md)
 
-AwesomeCLI ships with a set of examples for your reference.
+## AwesomeStack
 
- - [Line2Words](./examples/Line2Words): An example of a "singular CLI" which takes a number of arguments and splits them into lines.
+AwesomeStack is a free and open source set of libraries for rapidly building enterprise ready nodejs applications, of which, AwesomeCLI is one part.  Each library is written to provide a stable, performant, part of your application stack that can be used on its own, or part of the greater AwesomeStack setup.
 
- - [TextUtils](./examples/TextUtils): An example of a "command CLI" which has a number of different text related commands. Ask it for help! `textutils help`
+AwesomeStack includes...
 
-## The Awesome Engineering Company
+ - **[AwesomeServer](https://github.com/awesomeeng/awesome-server)** - A http/https/http2 API Server focused on implementing API end points.
 
-AwesomeCLI is written and maintained by The Awesome Engineering Company. We belive in building clean, configurable, creative software for engineers and architects and customers.
+ - **[AwesomeLog](https://github.com/awesomeeng/awesome-log)** - Performant Logging for your application needs.
 
-To learn more about The Awesome Engineering Company and our suite of products, visit us on the web at https://awesomeeng.com.
+ - **[AwesomeConfig](https://github.com/awesomeeng/awesome-config)** - Powerful configuration for your application.
 
-## Support and Help
+ - **[AwesomeCLI](https://github.com/awesomeeng/awesome-cli)** - Rapidly implement Command Line Interfaces (CLI) for your application.
 
-This product is maintained and supported by The Awesome Engineering Company.  For support please [file an issue](./issues) or contact us via our Webiste at [https://awesomeeng.com](https://awesomeeng.com).  We will do our best to respond to you in a timely fashion.
+All AwesomeStack libraries and AwesomeStack itself is completely free and open source (MIT license) and has zero external dependencies. This means you can have confidence in your stack and not spend time worrying about licensing and code changing out from under you. Additionally, AwesomeStack and all of is components are maintained by The Awesome Engineering Company ensuring you a single point of contact and responsibility and unified support for your entire application.
 
-## License
-
-AwesomeCLI is released under the MIT License. Please read the  [LICENSE](./LICENSE) file for details.
+You can learn more about AwesomeStack here: https://github.com/awesomeeng/awesome-stack
