@@ -20,7 +20,7 @@ AwesomeCLI allows you to build either.  In your CLI entry point you simple exten
 
  - **Extensiblity**. For all your CLI needs no matter how simple or how complex.
 
- - **No External Dependencies**. AwesomeCLI is written and maintained by The Awesome Engineering Company and has no dependency that was not written by us. This means consistency of code throughout the product and that we have zero dependencies that were not written in-house.  This means safer code for you and your product.
+ - **No External Dependencies**. AwesomeConfig is written and maintained by The Awesome Engineering Company and has no dependency that was not written by us. This means consistency of code throughout the product and zero dependencies that were not written by us.  This means safer code and better support for you and your product.
 
  - **Free and Open**. AwesomeCLI is released under the MIT License and complete free to use and modify.
 
