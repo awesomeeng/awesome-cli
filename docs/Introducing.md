@@ -1,6 +1,6 @@
 # [AwesomeCLI](../README.md) > Introducing AwesomeCLI
 
-AwesomeCLI is a library for rapidly building Command Line Interface (CLI) tools for usage with enterprise ready nodejs applications. It provides a basic CLI scaffold around which you can create either Singular CLIs or Command-Driven CLIs.  AwesomeCLI handles all the details of a CLI for you such as parsing commands, options/switches, help, etc.
+AwesomeCLI is a library for rapidly building Command Line Interface (CLI) tools for usage with enterprise nodejs applications. It provides a basic CLI scaffold around which you can create either Singular CLIs or Command-Driven CLIs.  AwesomeCLI handles all the details of a CLI for you such as parsing commands, options/switches, help, etc.
 
 A "singular CLI" is one that does one thing and does it well. `cat` for example, is a singluar CLI. A "command CLI" is one that takes one or more commands as arguments and each command provides a separate behavior. `git` for example, is a command CLI; it relies on the user passing additional commands to it to function (e.g. `git commit` where commit is the command).
 
@@ -253,7 +253,7 @@ At this point, we suggest you check the [project readme](https://github.com/awes
 
 ## AwesomeStack
 
-AwesomeCLI is one part of the free and open source set of libraries called AwesomeStack for rapidly building enterprise ready nodejs applications.  Each library is written to provide a stable, performant, part of your application stack that can be used on its own or as part of the greater AwesomeStack setup.
+AwesomeCLI is one part of the free and open source set of libraries called AwesomeStack for rapidly building enterprise nodejs applications.  Each library is written to provide a stable, performant, part of your application stack that can be used on its own or as part of the greater AwesomeStack setup.
 
 AwesomeStack includes...
 

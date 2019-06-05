@@ -1,6 +1,6 @@
 # AwesomeCLI
 
-AwesomeCLI is a simple framework for building enterprise ready Command Line Interface (CLI) tools. It supports standard or command based CLI interaction, global and local switches/options, and useful utilities to speed your tool development time.  It's all your cLI needs in one.
+AwesomeCLI is a simple framework for building enterprise Command Line Interface (CLI) tools. It supports standard or command based CLI interaction, global and local switches/options, and useful utilities to speed your tool development time.  It's all your cLI needs in one.
 
 ## Features
 
