@@ -20,7 +20,7 @@ AwesomeCLI allows you to build either.  In your CLI entry point you simple exten
 
  - **Extensiblity**. For all your CLI needs no matter how simple or how complex.
 
- - **No External Dependencies**. AwesomeConfig is written and maintained by The Awesome Engineering Company and has no dependency that was not written by us. This means consistency of code throughout the product and zero dependencies that were not written by us.  This means safer code and better support for you and your product.
+ - **No External Dependencies**. AwesomeConfig is written and maintained by The Awesome Engineering Company and has no runtime dependency that was not written by us. This means consistency of code throughout the product, safer code, and better support for you and your product.
 
  - **Free and Open**. AwesomeCLI is released under the MIT License and complete free to use and modify.
 
@@ -265,6 +265,6 @@ AwesomeStack includes...
 
  - **[AwesomeCLI](https://github.com/awesomeeng/awesome-cli)** - Rapidly implement Command Line Interfaces (CLI) for your application.
 
-All AwesomeStack libraries and AwesomeStack itself is completely free and open source (MIT license) and has zero external dependencies. This means you can have confidence in your stack and not spend time worrying about licensing and code changing out from under you. Additionally, AwesomeStack and all of is components are maintained by The Awesome Engineering Company ensuring you a single point of contact and responsibility and unified support for your entire application.
+All AwesomeStack libraries and AwesomeStack itself is completely free and open source (MIT license) and has zero external dependencies. This means you can have confidence in your stack and not spend time worrying about licensing and code changing out from under you. Additionally, AwesomeStack and This means consistency of code throughout the product, safer code, and better support for you and your product. are maintained by The Awesome Engineering Company ensuring you a single point of contact and responsibility and unified support for your entire application.
 
 You can learn more about AwesomeStack here: https://github.com/awesomeeng/awesome-stack
