@@ -22,7 +22,7 @@
 	  "lint": "eslint src examples",
       "docs": "jsdoc2md src/** --separators > docs/API.md"
   },
-  "description": "AwesomeCLI is a simple framework for building enterprise ready Command Line Interface (CLI) tools. It supports standard or command based CLI interaction, global and local switches/options, and useful utilities to speed your tool development time.  It's all your cLI needs in one.",
+  "description": "AwesomeCLI is a simple framework for building enterprise Command Line Interface (CLI) tools. It supports standard or command based CLI interaction, global and local switches/options, and useful utilities to speed your tool development time.  It's all your cLI needs in one.",
   "directories": {
     "doc": "docs",
     "test": "test"

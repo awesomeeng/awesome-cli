@@ -1,6 +1,6 @@
 # [AwesomeCLI](../README.md) > Introducing AwesomeCLI
 
-AwesomeCLI is a library for rapidly building Command Line Interface (CLI) tools for usage with enterprise ready nodejs applications. It provides a basic CLI scaffold around which you can create either Singular CLIs or Command-Driven CLIs.  AwesomeCLI handles all the details of a CLI for you such as parsing commands, options/switches, help, etc.
+AwesomeCLI is a library for rapidly building Command Line Interface (CLI) tools for usage with enterprise nodejs applications. It provides a basic CLI scaffold around which you can create either Singular CLIs or Command-Driven CLIs.  AwesomeCLI handles all the details of a CLI for you such as parsing commands, options/switches, help, etc.
 
 A "singular CLI" is one that does one thing and does it well. `cat` for example, is a singluar CLI. A "command CLI" is one that takes one or more commands as arguments and each command provides a separate behavior. `git` for example, is a command CLI; it relies on the user passing additional commands to it to function (e.g. `git commit` where commit is the command).
 
@@ -20,7 +20,7 @@ AwesomeCLI allows you to build either.  In your CLI entry point you simple exten
 
  - **Extensiblity**. For all your CLI needs no matter how simple or how complex.
 
- - **No External Dependencies**. AwesomeConfig is written and maintained by The Awesome Engineering Company and has no dependency that was not written by us. This means consistency of code throughout the product and zero dependencies that were not written by us.  This means safer code and better support for you and your product.
+ - **No External Dependencies**. AwesomeConfig is written and maintained by The Awesome Engineering Company and has no runtime dependency that was not written by us. This means consistency of code throughout the product, safer code, and better support for you and your product.
 
  - **Free and Open**. AwesomeCLI is released under the MIT License and complete free to use and modify.
 
@@ -253,7 +253,7 @@ At this point, we suggest you check the [project readme](https://github.com/awes
 
 ## AwesomeStack
 
-AwesomeCLI is one part of the free and open source set of libraries called AwesomeStack for rapidly building enterprise ready nodejs applications.  Each library is written to provide a stable, performant, part of your application stack that can be used on its own or as part of the greater AwesomeStack setup.
+AwesomeCLI is one part of the free and open source set of libraries called AwesomeStack for rapidly building enterprise nodejs applications.  Each library is written to provide a stable, performant, part of your application stack that can be used on its own or as part of the greater AwesomeStack setup.
 
 AwesomeStack includes...
 
@@ -265,6 +265,6 @@ AwesomeStack includes...
 
  - **[AwesomeCLI](https://github.com/awesomeeng/awesome-cli)** - Rapidly implement Command Line Interfaces (CLI) for your application.
 
-All AwesomeStack libraries and AwesomeStack itself is completely free and open source (MIT license) and has zero external dependencies. This means you can have confidence in your stack and not spend time worrying about licensing and code changing out from under you. Additionally, AwesomeStack and all of is components are maintained by The Awesome Engineering Company ensuring you a single point of contact and responsibility and unified support for your entire application.
+All AwesomeStack libraries and AwesomeStack itself is completely free and open source (MIT license) and has zero external dependencies. This means you can have confidence in your stack and not spend time worrying about licensing and code changing out from under you. Additionally, AwesomeStack and This means consistency of code throughout the product, safer code, and better support for you and your product. are maintained by The Awesome Engineering Company ensuring you a single point of contact and responsibility and unified support for your entire application.
 
 You can learn more about AwesomeStack here: https://github.com/awesomeeng/awesome-stack
